@@ -14,10 +14,10 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Check out source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version-file: go.mod
           cache: true
@@ -30,7 +30,7 @@ jobs:
           golangci_lint_flags: --timeout=5m
 
       - name: Check oldstable
-        uses: k1LoW/oldstable@v1
+        uses: k1LoW/oldstable@v2
 
       - name: Run tests
         run: make ci
